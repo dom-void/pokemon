@@ -1,6 +1,6 @@
 # pokemon
 
-## API  
+## The API  
 This site is using pokemon API.  
 It's available here: <https://pokeapi.co/>.  
 
@@ -8,7 +8,7 @@ It's available here: <https://pokeapi.co/>.
 You like Pokemons, you'll find something for yourself here:  
 <https://dom-void.github.io/pokemon/>.  
 
-## Goals  
+## The Goals (or tasks)  
 A few goals were given to me:  
 1. Create a table based on a CSS framework or your own styles.  
 2. List Pokemons available in the game:  
