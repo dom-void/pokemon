@@ -2,7 +2,7 @@
 
 ## API  
 This site is using pokemon API.  
-It's available here: <https://github.com/dom-void/pokemon.git>.  
+It's available here: <https://pokeapi.co/>.  
 
 ## The Site
 You like Pokemons, you'll find something for yourself here:  
