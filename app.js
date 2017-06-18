@@ -11,6 +11,7 @@ function load() {
         getAllPokemons();
         $.when(getAllPokemons().done(function () {
             fillTable(0);
+            // TODO: make pagination buttons show
         }))
     })
 }
@@ -59,6 +60,7 @@ function insertPokemon(url) {
 function insertContent(response) {
     var tr = $('<tr>')
     var tdImage = $('<td>').text(response.sprites.front_default);
+    // TODO: image as a background image in style
     var tdName = $('<td>').text(response.name);
     var tdHP = $('<td>').text(response.stats[5].base_stat);
     tr.append(tdImage);
@@ -68,6 +70,7 @@ function insertContent(response) {
 }
 
 function fillTable(offset) {
+    // TODO: condition for last page and next button starting from begining
     for (var i = 0; i < 10; i++) {
         console.log(allPokemons[i + offset].url);
         insertPokemon(allPokemons[i + offset].url)
