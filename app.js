@@ -15,7 +15,7 @@ function load() {
             }
         }).done(function (response) {
             allPokemons = response.results;
-            getPokemon(allPokemons[810].url);
+            getPokemon(allPokemons[0].url);
             console.log(response);
         }).fail(function (error) {
             console.log(error);
