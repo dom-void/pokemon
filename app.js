@@ -11,7 +11,7 @@ function load() {
         getAllPokemons();
         $.when(getAllPokemons().done(function () {
             fillTable(0);
-            // TODO: make pagination buttons show
+            // TODO: make pagination buttons show after filling the table
         }))
     })
 }
