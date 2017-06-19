@@ -59,8 +59,7 @@ function insertPokemon(url) {
 
 function insertContent(response) {
     var tr = $('<tr>')
-    var tdImage = $('<td>').text(response.sprites.front_default);
-    // TODO: image as a background image in style
+    var tdImage = $('<img>').attr('src', response.sprites.front_default);
     var tdName = $('<td>').text(response.name);
     var tdHP = $('<td>').text(response.stats[5].base_stat);
     tr.append(tdImage);
