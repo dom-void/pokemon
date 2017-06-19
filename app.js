@@ -1,5 +1,5 @@
 var table = $('table');
-var url = 'http://pokeapi.co/api/v2/pokemon/';
+var url = 'https://pokeapi.co/api/v2/pokemon/';
 
 var allPokemonsNo = 0;
 var allPokemons = [];
