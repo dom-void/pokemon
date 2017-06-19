@@ -13,6 +13,7 @@ var prevBtn = $('#prev');
 var nextBtn = $('#next');
 
 function firstLoad() {
+    makeTable(offsetStep);
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
@@ -25,20 +26,17 @@ function firstLoad() {
 }
 
 function load() {
-    tbody.find('tr').remove(); //empty();
+    tbody.attr('style', 'display: none');
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
     fillTable(offset);
     $(document).ajaxStop(function () {
         loading.attr('style', 'display: none');
-        // if (offset > 0) {
         prevBtn.attr('style', 'display: block');
-        // }
-        // if (Math.floor(offset / offsetStep) < Math.floor(allPokemonsNo / offsetStep)) {
         nextBtn.attr('style', 'display: block');
-        // }
         insertContent(tableArray);
+        tbody.attr('style', 'display: table-row-group');
     });
 }
 
@@ -83,20 +81,34 @@ function insertPokemon(url, i) {
     })
 }
 
-function insertContent(array) {
-    // FIXME: make the table not multiplying its size
-    for (var i = 0; i < array.length; i++) {
-        var response = array[i];
-        var tr = $('<tr>')
-        var tdImage = $('<img>').attr('src', response.sprites.front_default);
-        var tdID = $('<td>').text(response.id);
-        var tdName = $('<td>').text(response.name);
-        var tdHP = $('<td>').text(response.stats[5].base_stat);
+function makeTable(offsetStep) {
+    tbody.attr('style', 'display: none');
+    for (var i = 0; i < offsetStep; i++) {
+        var tr = $('<tr>').attr('id', ('tr' + i));
+        var tdImage = $('<img>').attr('id', ('img' + i));
+        var tdID = $('<td>').attr('id', ('td-id' + i));
+        var tdName = $('<td>').attr('id', ('td-name' + i));
+        var tdHP = $('<td>').attr('id', ('td-hp' + i));
         tr.append(tdImage);
         tr.append(tdID);
         tr.append(tdName);
         tr.append(tdHP);
         tbody.append(tr);
+    }
+}
+
+function insertContent(array) {
+    for (var i = 0; i < array.length; i++) {
+        $
+        var response = array[i];
+        var tdImage = $('#img' + i);
+        var tdID = $('#td-id' + i);
+        var tdName = $('#td-name' + i);
+        var tdHP = $('#td-hp' + i);
+        tdImage.attr('src', response.sprites.front_default);
+        tdID.text(response.id);
+        tdName.text(response.name);
+        tdHP.text(response.stats[5].base_stat);
     }
 }
 
