@@ -14,6 +14,8 @@ var nextBtn = $('#next');
 
 function firstLoad() {
     makeTable(offsetStep);
+    prevBtn.text('< prev ' + offsetStep);
+    nextBtn.text('next ' + offsetStep + ' >')
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
