@@ -24,3 +24,25 @@ img:hover {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
+
+nav {
+  padding: 3px 10px;
+}
+
+#prev {
+  float: left;
+}
+
+#next {
+  float: right;
+}
+
+#prev:hover, #next:hover {
+  background-color: white;
+}
+
+.reset-float::after {
+  clear: both;
+  display: block;
+  content: '';
+}
