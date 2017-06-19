@@ -22,6 +22,7 @@ b. Reference to it’s evolution forms.
 5. Add at least one unit/integration test.  
 
 ## What I have done untill now
+- I used `AJAX` to request data from `JSON` `API` server.
 - Code is written in `ECMAScript5` (for a good start).
 - At first it takes number of all Pokemons available in `API` (in case it's gonna change one day).
 - Next `API` request creates `array` with all Pokemons' names and its `url`s.
