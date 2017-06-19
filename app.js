@@ -47,8 +47,7 @@ function getNoOfPokemons() {
         url: url,
         method: 'GET'
     }).done(function (response) {
-        // allPokemonsNo = response.count;
-        allPokemonsNo = 809;
+        allPokemonsNo = response.count;
         console.log(response.count);
     }).fail(function (error) {
         console.log(error);
