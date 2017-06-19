@@ -9,6 +9,9 @@ var offsetStep = 10;
 var tableArray = [];
 
 var loading = $('#loading');
+var statusP = $('#status');
+var status1 = $('#status1');
+var status2 = $('#status2');
 var prevBtn = $('#prev');
 var nextBtn = $('#next');
 
@@ -16,6 +19,7 @@ function firstLoad() {
     makeTable(offsetStep);
     prevBtn.text('< prev ' + offsetStep);
     nextBtn.text('next ' + offsetStep + ' >')
+    statusP.attr('style', 'display: none');
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
@@ -29,6 +33,7 @@ function firstLoad() {
 
 function load() {
     tbody.attr('style', 'display: none');
+    statusP.attr('style', 'display: none');
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
@@ -39,6 +44,9 @@ function load() {
         nextBtn.attr('style', 'display: block');
         insertContent(tableArray);
         tbody.attr('style', 'display: table-row-group');
+        status1.text(Math.floor(offset/offsetStep)+1);
+        status2.text(Math.floor(allPokemonsNo/offsetStep)+1);
+        statusP.attr('style', 'display: block');
     });
 }
 
@@ -101,16 +109,25 @@ function makeTable(offsetStep) {
 
 function insertContent(array) {
     for (var i = 0; i < array.length; i++) {
-        $
-        var response = array[i];
+        var tr = $('#tr'+i);
         var tdImage = $('#img' + i);
         var tdID = $('#td-id' + i);
         var tdName = $('#td-name' + i);
         var tdHP = $('#td-hp' + i);
-        tdImage.attr('src', response.sprites.front_default);
-        tdID.text(response.id);
-        tdName.text(response.name);
-        tdHP.text(response.stats[5].base_stat);
+        if (array[i] !== null) {
+            tr.attr('style', 'display: table-row');
+            var response = array[i];
+            if (response.sprites.front_default == null) {
+                tdImage.attr('src', './images/noimage.png');
+            } else {
+                tdImage.attr('src', response.sprites.front_default);
+            }
+            tdID.text(response.id);
+            tdName.text(response.name);
+            tdHP.text(response.stats[5].base_stat);
+        } else {
+            tr.attr('style', 'display: none');
+        }
     }
 }
 
@@ -118,8 +135,12 @@ function fillTable(offset) {
     // TODO: condition for last page which is not full offsetStep long
     tableArray = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     for (var i = 0; i < offsetStep; i++) {
-        console.log(allPokemons[i + offset].url);
-        insertPokemon(allPokemons[i + offset].url, i)
+        if (i + offset >= allPokemonsNo) {
+            tableArray[i] = null;
+        } else {
+            console.log(allPokemons[i + offset].url);
+            insertPokemon(allPokemons[i + offset].url, i)
+        }
     }
 }
 

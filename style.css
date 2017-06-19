@@ -7,6 +7,10 @@ main {
   margin: 0 auto;
 }
 
+#status1, #status2 {
+  font-weight: bold;
+}
+
 #loading {
   color: blue;
 }
