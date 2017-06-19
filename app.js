@@ -7,12 +7,19 @@ var allPokemons = [];
 var offset = 0;
 var tableArray = [];
 
+var loading = $('#loading');
+
+
 function load() {
+    // TODO: show 'please wait while content is loading...'
+    loading.attr('style', 'display: block');
     $.when(getNoOfPokemons()).done(function () {
         getAllPokemons();
         $.when(getAllPokemons().done(function () {
             fillTable(0);
             $(document).ajaxStop(function () {
+                // TODO: hide 'please wait while content is loading...'
+                loading.attr('style', 'display: none');
                 insertContent(tableArray);
             });
             // TODO: make pagination buttons show after filling the table
@@ -78,7 +85,7 @@ function insertContent(array) {
 function fillTable(offset) {
     // TODO: condition for last page and next button starting from begining
     tableArray = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 21; i++) {
         console.log(allPokemons[i + offset].url);
         insertPokemon(allPokemons[i + offset].url, i)
     }
