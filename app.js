@@ -25,7 +25,7 @@ function firstLoad() {
 }
 
 function load() {
-    tbody.empty();
+    tbody.find('tr').remove(); //empty();
     loading.attr('style', 'display: block');
     prevBtn.attr('style', 'display: none');
     nextBtn.attr('style', 'display: none');
@@ -40,7 +40,6 @@ function load() {
         // }
         insertContent(tableArray);
     });
-    // TODO: make pagination buttons show after filling the table
 }
 
 function getNoOfPokemons() {
@@ -86,6 +85,7 @@ function insertPokemon(url, i) {
 }
 
 function insertContent(array) {
+    // FIXME: make the table not multiplying its size
     for (var i = 0; i < array.length; i++) {
         var response = array[i];
         var tr = $('<tr>')
@@ -102,7 +102,7 @@ function insertContent(array) {
 }
 
 function fillTable(offset) {
-    // TODO: condition for last page and next button starting from begining
+    // TODO: condition for last page which is not full offsetStep long
     tableArray = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     for (var i = 0; i < offsetStep; i++) {
         console.log(allPokemons[i + offset].url);
