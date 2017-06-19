@@ -11,6 +11,10 @@ main {
   color: blue;
 }
 
+tr, td {
+  vertical-align: middle !important;
+}
+
 img {
   -webkit-transition: -webkit-transform .8s ease;
   transition: transform .3s ease-in-out;
