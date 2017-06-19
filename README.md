@@ -36,5 +36,7 @@ b. Reference to it’s evolution forms.
 ## What I want to do more
 - Modal page linked for every Pokemon on the list, contains: speed, attack and defence stats.
 - The same modal page will contain reference to Pokemon's evolotion forms (not sure what is that in fact).
+- Make input and submit button allowing user to go to particular page.
+- Make search through pokemons' names field, to find the page containing particular Pokemon.
 - Accumulate more knowledge about unit and integration tests.
 - I won't sleep 'till it works in `React`.
