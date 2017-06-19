@@ -132,7 +132,6 @@ function insertContent(array) {
 }
 
 function fillTable(offset) {
-    // TODO: condition for last page which is not full offsetStep long
     tableArray = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
     for (var i = 0; i < offsetStep; i++) {
         if (i + offset >= allPokemonsNo) {
@@ -164,5 +163,4 @@ prevBtn.on('click', function () {
     load();
 })
 
-// TODO: display page status betwen buttons: 'page 1 of 81'
 // TODO: make 'go to page: xxx' input & button
